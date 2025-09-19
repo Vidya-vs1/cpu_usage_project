@@ -1,2 +1,7 @@
 /models
 /metrics.json
+e/
+*.pyc
+__pycache__/
+venv/
+.env

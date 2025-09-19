@@ -1,0 +1,15 @@
+# Core
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.5.1
+joblib==1.4.2
+pyyaml==6.0.2
+
+# DVC for experiment & data versioning
+dvc==3.50.1
+
+# Optional: install with cloud support if needed
+# dvc[s3]   # For AWS S3
+# dvc[gdrive] # For Google Drive
+# dvc[azure]  # For Azure Blob
+# dvc[gs]     # For Google Cloud Storage

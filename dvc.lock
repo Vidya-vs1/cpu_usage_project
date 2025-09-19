@@ -1,0 +1,39 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py data/cpu_data.csv data/processed.pkl
+    deps:
+    - path: data/cpu_data.csv
+      hash: md5
+      md5: d983536f17c57d40c737b1d43cf012a7
+      size: 76301858
+    - path: src/preprocess.py
+      hash: md5
+      md5: 6b746b31c5736167368f7705f91aed0f
+      size: 1255
+    outs:
+    - path: data/processed.pkl
+      hash: md5
+      md5: d5c734e28ea1340ba984ece38bdfee81
+      size: 12456125
+  train:
+    cmd: python src/train.py data/processed.pkl metrics.json models/model
+    deps:
+    - path: data/processed.pkl
+      hash: md5
+      md5: d5c734e28ea1340ba984ece38bdfee81
+      size: 12456125
+    - path: src/train.py
+      hash: md5
+      md5: d74f2d0d532a7fa399da2089080a231b
+      size: 1477
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: cc347515429db8bc2b8edc325d875bc2
+      size: 535
+    - path: models/
+      hash: md5
+      md5: 09e5ba4561730e1afdeadcb529f1000f.dir
+      size: 584808456
+      nfiles: 3

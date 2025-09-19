@@ -1,0 +1,9 @@
+preprocess:
+  test_size: 0.2
+  random_state: 42
+
+train:
+  random_state: 42
+  rf_n_estimators: 100
+  rf_max_depth: null   # None means unlimited
+  svr_kernel: "rbf"
