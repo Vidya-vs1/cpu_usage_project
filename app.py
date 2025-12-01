@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 
-MODEL_PATH = Path("models/model_RandomForest.joblib")
+MODEL_PATH = Path("models/model_RandomForest_small.joblib")
 
 CONTROLLER_KINDS = [
     "ReplicaSet",
