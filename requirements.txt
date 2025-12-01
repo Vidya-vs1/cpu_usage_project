@@ -1,16 +1,5 @@
-# Core
-pandas==2.2.2
+streamlit==1.38.0
+pandas==2.1.4
 numpy==1.26.4
 scikit-learn==1.5.1
 joblib==1.4.2
-pyyaml==6.0.2
-streamlit==1.37.0
-# DVC for experiment & data versioning
-dvc==3.50.1
-mlflow==2.15.1
-# Optional: plotting
-# Optional: install with cloud support if needed
-# dvc[s3]   # For AWS S3
-# dvc[gdrive] # For Google Drive
-# dvc[azure]  # For Azure Blob
-# dvc[gs]     # For Google Cloud Storage
