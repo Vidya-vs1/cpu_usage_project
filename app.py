@@ -10,7 +10,6 @@ st.set_page_config(
     layout="centered",
 )
 
-
 MODEL_PATH = Path("models/model_RandomForest_small.joblib")
 
 CONTROLLER_KINDS = [
@@ -23,7 +22,6 @@ CONTROLLER_KINDS = [
 ]
 
 # ---------- LOAD MODEL (CACHED) ----------
-
 @st.cache_resource
 def load_model():
     if not MODEL_PATH.exists():
@@ -32,13 +30,9 @@ def load_model():
     model = joblib.load(MODEL_PATH)
     return model
 
-model = load_model()
 
 # ---------- UI LAYOUT ----------
-
-
 st.title("🧠 CPU Usage Prediction for Container Workloads")
-
 st.write(
     """
 This application predicts **CPU usage** of workloads in Kubernetes environments  
@@ -47,14 +41,12 @@ based on resource requests, limits and runtime characteristics.
 Model used: **Random Forest Regressor** ✔  
 Tracked using **DVC + MLflow** ✔  
 Deployed using **Streamlit Cloud** ✔
-
 """
 )
 
 st.markdown("---")
 
 # ---------- INPUT FORM ----------
-
 with st.form("prediction_form"):
     st.subheader("🔧 Workload Configuration")
 
@@ -97,8 +89,9 @@ with st.form("prediction_form"):
     submitted = st.form_submit_button("🔮 Predict CPU Usage")
 
 # ---------- PREDICTION LOGIC ----------
-
 if submitted:
+    model = load_model()  # Load only when button is pressed
+
     controller_val = None if controller_kind == "Unknown" else controller_kind
 
     input_data = pd.DataFrame([{
@@ -107,7 +100,7 @@ if submitted:
         "cpu_limit": cpu_limit,
         "mem_limit": mem_limit,
         "runtime_minutes": runtime_minutes,
-        "controller_kind": controller_val
+        "controller_kind": controller_val,
     }])
 
     try:
